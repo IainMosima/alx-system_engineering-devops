@@ -6,3 +6,5 @@
 6. 5-local_variables - a script that lists all local variables and environment variables, and functions
 7. 6-create_local_variable - a script that creates a new local variable: name: BEST and VALUE: Schoo
 8. 7-create_global_variable - a script that creates a global variable
+9. 8-truw_knowledge -  a script that adds 129 to an environment variable TRUEKNOWLEDG
+10. 9-divide_and_rule - script that divides numbers stored in the env
