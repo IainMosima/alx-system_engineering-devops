@@ -9,4 +9,5 @@
 9. 8-truw_knowledge -  a script that adds 129 to an environment variable TRUEKNOWLEDG
 10. 9-divide_and_rule - script that divides numbers stored in the en
 11. 10-love_exponent - displays result of BREATH to the power of LOVE
-12. 11-binary_to_decimal- converts a number from base 2 to base 10
+12. 11-binary_to_decimal- converts a number from base 2 to base 1
+13. 12-combinations- a script that prints all possible combinations of two letters, except oo.
