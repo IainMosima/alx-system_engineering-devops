@@ -7,4 +7,5 @@
 7. 6-create_local_variable - a script that creates a new local variable: name: BEST and VALUE: Schoo
 8. 7-create_global_variable - a script that creates a global variable
 9. 8-truw_knowledge -  a script that adds 129 to an environment variable TRUEKNOWLEDG
-10. 9-divide_and_rule - script that divides numbers stored in the env
+10. 9-divide_and_rule - script that divides numbers stored in the en
+11. 10-love_exponent - displays result of BREATH to the power of LOVE
