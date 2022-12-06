@@ -2,4 +2,5 @@
 2. 1-hello_you - a script that print the current linux user
 3. 2-path - a script that adds /action to the variable path
 4. 3-paths - script that counts the number of directories in PATH
-5. 4-global_variables - a script that prints environment variables
+5. 4-global_variables - a script that prints environment variable
+6. 5-local_variables - a script that lists all local variables and environment variables, and functions
