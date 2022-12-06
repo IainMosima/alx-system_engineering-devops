@@ -11,4 +11,5 @@
 11. 10-love_exponent - displays result of BREATH to the power of LOVE
 12. 11-binary_to_decimal- converts a number from base 2 to base 1
 13. 12-combinations- a script that prints all possible combinations of two letters, except oo
-14. 13-print_float - a script that prints a number with two decimal places, followed by a new line
+14. 13-print_float - a script that prints a number with two decimal places, followed by a new lin
+15. 100-decimal_to_hexadecimal - converts a number form base 10 to base 16
