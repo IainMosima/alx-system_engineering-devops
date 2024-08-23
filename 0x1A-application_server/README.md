@@ -1,59 +1,48 @@
-## 0x1A - Application server
+# Application server
 
-### Description
+This was the application deployment project for our AirBnB clone. In this
+project, I configured Nginx on the web servers provided me by ALX
+to serve a WSGI Flask app running through Gunicorn. Additionally, I set up an
+Upstart script to keep the application running on server reboots.
 
-Installing gunicorn and running the app server.
+## Tasks :page_with_curl:
 
----
+* **0. Set up development with Python**
+  * In this task, I configured the file `web_flask/0-hello_route.py` from my
+  [AirBnB_clone_v2](https://github.com/aysuarex/AirBnB_clone_v2) to serve content
+  on the route `/airbnb-onepage/`, running on port `5000`.
 
-### Project Takeaways
+* **1. Set up production with Gunicorn**
+  * This task involved setting up a production environment, installing and configuring
+  Gunicorn to serve the same file from task 0.
 
-- How to serve a Flask app with Gunicorn and Nginx on Ubuntu 14.04
-- Running Gunicorn
-- Upstarting Gunicorn
+* **2. Serve a page with Nginx**
+  * [2-app_server-nginx_config](./2-app_server-nginx_config): Nginx configuration file
+  proxying requests on the route `/airbnb-onepage/` to the Gunicorn app running on
+  port `5000`.
 
----
+* **3. Add a route with query parameters**
+  * [3-app_server-nginx_config](./3-app_server-nginx_config): Nginx configuration file
+  proxying requests on the route `/airbnb-dynamic/number_odd_or_even/<int: num>` to the
+  Gunicorn app running on port `5000`.
 
-### Tasks
+* **4. Let's do this for your API**
+  * In this task, I configured the API from my [AirBnB_clone_v3](https://github.com/Tijani1402/AirBnB_clone_v31) to run on Gunicorn.
+  * [4-app_server-nginx_config](./4-app_server-nginx_config): Nginx configuration file
+  that proxies requests on the AirBnB API to the corresponding Gunicorn app.
 
-- Install Gunicorn
-  - Git clone your AirBnB_clone_v2
-  - Install Gunicorn and other libraries required by your application
-  - Create an Upstart script that starts a Gunicorn instance to serve web_flask/0-hello_route.py from your AirBnB_clone_v2
-  - Setup Nginx so that the route /airbnb-onepage/ points to your Gunicorn instance
-  - Nginx must serve this page both locally and on its public IP on port 80
-  - Upload your Upstart config file as 0-welcome_gunicorn-upstart_config
-  - Upload your Nginx config file as 0-welcome_gunicorn-nginx_config
+* **5. Serve your AirBnB clone**
+  * In this task, I configured the complete AirBnB app from [AirBnB_clone_v4](https://github.com/aysuarex/AirBnB_clone_v4) to run on Gunicorn and be served through Nginx.
+  * [5-app_server-nginx_config](./5-app_server-nginx_config): Nginx configuration file
+  configured to serve the static assets from `web_dynamic/static/` on the Gunicorn AirBnB
+  app.
 
-- Pass a query parameter
-  - Create an Upstart script that starts a Gunicorn instance to serve web_flask/6-number_odd_or_even.py from your AirBnB_clone_v2
-  - Setup Nginx so that the route/airbnb-dynamic/ points to your Gunicorn instance
-  - Nginx must serve this page both locally and on its public IP on port 80
-  - Upload your Upstart config file as 1-pass_parameter-upstart_config
-  - Upload your Nginx config file as 1-pass_parameter-nginx_config
+* **6. Deploy it**
+  * [gunicorn.conf](./gunicorn.conf): Configuration file for an Upstart script that starts a
+  Gunicorn process bounded to port 5003 that serves the content from task 5.
+  * The Gunicorn process spawns three worker processes and logs errors to `/tmp/airbnb-error.log`,
+  access to `/tmp/airbnb-access.log`.
 
-- Let's do this for your API
-  - Git clone your AirBnB_clone_v3
-  - data dump
-  - Create an Upstart script that starts a Gunicorn instance to serve api/v1/app.py from your AirBnB_clone_v3
-  - Make sure to use the necessary environment variables for your AirBnB_clone_v3 app
-  - Setup Nginx so that the route /api/ points to your Gunicorn instance
-  - Nginx must serve this page both locally and on its public IP on port 80
-  - Upload your Upstart config as 2-api-upstart_config
-  - Upload your Nginx config as 2-api-nginx_config
-
-
-
----
-
-### Technologies Used
-* Language: Python
-* Operating System: Ubuntu 14.04 LTS (Trusty64)
----
-
-### Author
-Mitali Sengupta
-
-<img src="http://pluspng.com/img-png/twitter-png-file-png-image-200.png" width=2% height=2%/> [@aadhibangalan](https://twitter.com/aadhibangalan) 
-
-<img src="https://assets-cdn.github.com/images/icons/emoji/octocat.png" width=2% height=2%/>[MitaliSengupta](https://github.com/MitaliSengupta)
+* **7. No service interruption**
+  * [4-reload_gunicorn_no_downtime](./4-reload_gunicorn_no_downtime): Bash script that gracefully
+  reloads Gunicorn.
